@@ -1,92 +1,73 @@
-# Amazon-Reviews-Sentiment-Analysis-and-Wordcloud
+# Amazon Product Review Analysis and WordCloud Generation
 
+This repository contains a Python script that processes Amazon product reviews, performs sentiment analysis, and generates visualizations using WordClouds. The script analyzes reviews based on sentiment, categorizing them into positive and negative reviews, and generates word clouds for each category. It also provides a general word cloud for all reviews.
 
-This repository contains a Python script that performs sentiment analysis and generates word clouds from Amazon product reviews. The script processes a sample dataset of reviews, cleans the text, performs sentiment analysis, and generates visualizations such as word clouds for positive, negative, and all reviews. The script also includes bigram analysis to visualize frequent two-word combinations.
+## Features
+- Clean reviews to remove unwanted characters.
+- Perform sentiment analysis using VADER.
+- Generate WordClouds for all reviews, positive reviews, negative reviews, and bigrams.
+- Visualize common words and bigrams using WordClouds.
 
-## Requirements
+---
 
-### Python 3.x
+## Prerequisites
 
-### Libraries:
-- `pandas` for data manipulation.
-- `nltk` for natural language processing tasks.
-- `wordcloud` for generating word clouds.
-- `matplotlib` for plotting the word clouds and graphs.
-- `re` for regular expressions to clean the text.
-- `sklearn` for bigram analysis.
+Before using the script, ensure you have the following:
 
-### You can install the necessary libraries using the following:
+1. Python 3.6 or above installed on your machine.
+2. Required Python libraries:
+   ```bash
+   pip install pandas nltk wordcloud matplotlib scikit-learn
+   ```
 
-pip install pandas nltk wordcloud matplotlib scikit-learn
-How to Run the Code
-Set Up:
-Download the Amazon product review CSV file (e.g., amazon_com-product_reviews__20200101_20200331_sample.csv).
+---
 
-The dataset should contain a Review Title column or equivalent, which holds the review text.
-NLTK Data:
+## Installation
 
-### The script requires specific datasets from NLTK (punkt, stopwords, and vader_lexicon). You can download them by running the following commands:
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/your-username/amazon-review-analysis.git
+   cd amazon-review-analysis
+   ```
+2. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-#### import nltk
-#### nltk.download('punkt')
-#### nltk.download('stopwords')
-#### nltk.download('vader_lexicon')
-#### Running the Script:
-After downloading the dataset and installing dependencies, replace the CSV path in the script with the location of your dataset, and simply run the Python script:
+---
 
-####  python amazon_reviews.py
-####  Expected Output:
-Word Cloud Generation:
+## Usage
 
-## Word clouds will be generated and displayed for:
+1. Ensure that your CSV file containing Amazon reviews is in the correct format. The script assumes the reviews are in a column named `Review Title`. Modify the script if your CSV structure differs.
 
-### General Word Cloud: The most frequent words from all reviews.
-### Positive Word Cloud: Words associated with positive sentiment.
-### Negative Word Cloud: Words associated with negative sentiment.
-### Bigram Word Cloud: Most frequent two-word combinations in the reviews.
+2. Run the script:
+   ```bash
+   python amazon_review_analysis.py
+   ```
 
-## Sentiment Analysis:
+---
 
-The script also generates sentiment scores using VADER and applies sentiment analysis to the reviews, categorizing them into positive, neutral, and negative scores.
-WordClouds and Sentiment Analysis
-WordClouds:
-The script generates multiple word clouds:
+## Example Output
 
-#### General WordCloud: Shows the most frequent words in the reviews.
-#### Positive WordCloud: Shows words from positive sentiment reviews.
-#### Negative WordCloud: Shows words from negative sentiment reviews.
-#### Bigram WordCloud: Displays the most frequent two-word combinations (bigrams) in the reviews.
-#### Text Cleaning and Preprocessing:
-The script cleans and preprocesses the text in the following ways:
+- WordClouds for:
+  - All reviews.
+  - Positive reviews.
+  - Negative reviews.
+  - Bigram frequency (most frequent two-word combinations).
 
-#### Remove unwanted characters: Non-alphabetic characters are removed.
-#### Lowercase: Text is converted to lowercase for uniformity.
-#### Remove stopwords: Common English stopwords (e.g., "the", "and") are removed.
-#### Lemmatization: Words are lemmatized to their root forms (e.g., "running" becomes "run").
-#### Bigram Analysis: Generates bigrams (two-word combinations) and visualizes their frequencies.
+- Dataframe with sentiment scores for each review (positive, neutral, and negative).
 
-#### Output Files:
-WordCloud Images: WordClouds for positive, negative, and all reviews will be displayed using matplotlib.
-Review Dataset: The script does not save reviews to an external file, but you can modify the code to do so if needed.
-Example Screenshots of WordClouds:
-General WordCloud: A visualization of the most frequent words in all reviews.
-Positive WordCloud: Shows words associated with positive sentiment.
-Negative WordCloud: Shows words associated with negative sentiment.
-Bigram WordCloud: Displays the most frequent two-word combinations.
+---
 
-### Important Notes
+## File Structure
+```
+.
+|-- amazon_review_analysis.py   # Main script to process reviews and generate word clouds
+|-- requirements.txt            # Required Python packages
+|-- reviews.csv                 # Sample CSV with Amazon reviews (generated at runtime)
+```
 
-Amazon Review Dataset: This script assumes you have a CSV file with Amazon product reviews. Ensure the dataset has a proper column for review titles or adjust the column name accordingly in the script.
-Legal and Ethical Implications: If you are scraping data from Amazon, be aware of the legal and ethical implications. Ensure that scraping adheres to Amazon’s terms of service or consider using legitimate API access for fetching data.
+---
 
-### License
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-### Credits
-This project uses the following libraries:
-
-#### Pandas: For data manipulation and cleaning.
-#### NLTK: For natural language processing tasks, including sentiment analysis.
-#### WordCloud: For generating word clouds.
-#### Matplotlib: For displaying word clouds and visualizations.
-#### Scikit-learn: For bigram analysis and vectorization.
+## License
+This project is licensed under the MIT License.
